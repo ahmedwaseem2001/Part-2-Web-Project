@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Safe Search</title>
+</head>
+<body>
+    <h1>Education Portal - Safe Search</h1>
+
+    <form action="/safe/search" method="GET">
+        <input type="text" name="q" placeholder="Search courses">
+        <button type="submit">Search</button>
+    </form>
+
+    <p>Search results for: {{ query }}</p>
+
+    <a href="/safe">Back to Home</a>
+</body>
+</html>

@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vulnerable Search</title>
+</head>
+<body>
+    <h1>Education Portal - Vulnerable Search</h1>
+
+    <form action="/vulnerable/search" method="GET">
+        <input type="text" name="q" placeholder="Search courses">
+        <button type="submit">Search</button>
+    </form>
+
+    <p>Search results for: {{ query | safe }}</p>
+
+    <a href="/vulnerable">Back to Home</a>
+</body>
+</html>

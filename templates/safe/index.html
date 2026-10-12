@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education Portal - Safe Version</title>
+</head>
+<body>
+    <h1>Education Portal</h1>
+
+    <p>Currently viewing: Safe Version</p>
+
+    <nav>
+        <a href="/safe">Safe Version</a> |
+        <a href="/vulnerable">Vulnerable Version</a>
+    </nav>
+
+    <hr>
+
+    <h2>Student Comments</h2>
+
+    <form action="/safe/add-comment" method="POST">
+        <label for="student_name">Name:</label>
+        <input type="text" id="student_name"
+               name="student_name" required>
+
+        <br><br>
+
+        <label for="comment">Comment:</label>
+        <textarea id="comment" name="comment" required></textarea>
+
+        <br><br>
+
+        <button type="submit">Submit Comment</button>
+    </form>
+
+    <h3>Recent Comments</h3>
+
+    {% for item in comments %}
+        <div>
+            <h4>{{ item["student_name"] }}</h4>
+            <p>{{ item["comment"] }}</p>
+        </div>
+    {% else %}
+        <p>No comments yet.</p>
+    {% endfor %}
+</body>
+</html>

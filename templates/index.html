@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education Portal</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fb;
+            color: #222;
+        }
+
+        nav {
+            background-color: #173b68;
+            color: white;
+            padding: 18px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h2 {
+            margin: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .hero {
+            background-color: #dceaff;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .hero h1 {
+            color: #173b68;
+            font-size: 36px;
+        }
+
+        .courses {
+            padding: 30px 40px;
+        }
+
+        .course-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .course-card {
+            background-color: white;
+            padding: 22px;
+            border-radius: 10px;
+            flex: 1;
+            min-width: 200px;
+            box-shadow: 0 2px 8px #dddddd;
+            margin-bottom: 15px;
+        }
+
+        .course-card h3, .course-card h4 {
+            color: #173b68;
+            margin-top: 0;
+        }
+
+        footer {
+            background-color: #173b68;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <h2>EduPortal</h2>
+        <div>
+            <a href="/">Home</a>
+            <a href="#courses">Courses</a>
+            <a href="#about">About</a>
+            <a href="#comments">Comments</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Welcome to Education Portal</h1>
+        <p>Learn new skills, explore courses, and grow your future.</p>
+    </section>
+
+    <section class="courses" id="courses">
+        <h2>Available Courses</h2>
+
+        <div class="course-container">
+            <div class="course-card">
+                <h3>Web Development</h3>
+                <p>Learn HTML, CSS, JavaScript, and Flask.</p>
+            </div>
+
+            <div class="course-card">
+                <h3>Python Programming</h3>
+                <p>Learn programming fundamentals using Python.</p>
+            </div>
+
+            <div class="course-card">
+                <h3>Cyber Security</h3>
+                <p>Understand web security and common vulnerabilities.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="courses" id="about">
+        <h2>About Us</h2>
+        <p>EduPortal helps students explore courses and develop useful technical skills.</p>
+    </section>
+
+    <!-- Step 3.2: Comments Section -->
+    <section class="courses" id="comments">
+        <h2>Student Comments</h2>
+
+        <form action="/add-comment" method="POST">
+            <label for="student_name">Your Name:</label><br>
+            <input
+                type="text"
+                id="student_name"
+                name="student_name"
+                required
+            >
+            <br><br>
+
+            <label for="comment">Your Comment:</label><br>
+            <textarea
+                id="comment"
+                name="comment"
+                rows="4"
+                required
+            ></textarea>
+            <br><br>
+
+            <button type="submit">Submit Comment</button>
+        </form>
+
+        <h3>Recent Comments</h3>
+
+        {% for item in comments %}
+            <div class="course-card">
+                <h4>{{ item["student_name"] }}</h4>
+                <p>{{ item["comment"] }}</p>
+            </div>
+        {% else %}
+            <p>No comments yet. Be the first to comment!</p>
+        {% endfor %}
+    </section>
+
+    <footer>
+        <p>Education Portal - Information Security Practical Project</p>
+    </footer>
+
+</body>
